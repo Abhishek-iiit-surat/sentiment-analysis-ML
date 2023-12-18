@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+</head>
+
+<body>
+    <div class="main">
+        <h2 class='head'><span>SENTIMENT ANALYSER</h2>
+        <div class='desc'>
+            <p>Please type in the text to analyze sentiment</p>
+        </div>
+
+        <div class="container">
+            <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+                <textarea class='message' name="message" rows="7" cols="75"
+                    placeholder="Enter Your Message Here."></textarea><br />
+                
+
+                <br>
+
+                <input type="submit" class="btn" value="Predict">
+            </form>
+        </div>
+
+        <div class="predict">
+            {{prediction_text}}
+        </div>
+    </div>
+
+
+</body>
+
+</html>
